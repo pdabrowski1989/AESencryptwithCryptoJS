@@ -1,0 +1,22 @@
+{
+  "name": "aes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pdabrowski1989/AESencryptwithCryptoJS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aes-js": "^3.1.0",
+    "angular": "^1.6.5",
+    "bootstrap": "^3.3.7",
+    "crypto-js": "^3.1.9-1",
+    "jquery": "^3.2.1"
+  }
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html ng-app="Aes" ng-controller="MainCtrl as mCtrl" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aes</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap-theme.css"/>
+</head>
+<body style="font-family: 'Roboto', sans-serif;">
+
+<div class="row-fluid">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="row">
+            <div class="col-md-8">
+                <h1><span style="font-weight: 300">AES encrypt with</span> <strong>CryptoJS</strong> <button ng-click="mCtrl.options = !mCtrl.options" class="pull-right btn btn-primary">AES-JS</button></h1>
+                <hr>
+            </div>
+        </div>
+
+        <div ng-if="!mCtrl.options">
+            <div class="row">
+                <div class="col-md-8">
+                    <h3>Key</h3>
+                    <textarea rows="1" class="form-control" ng-model="mCtrl.key"></textarea>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-8">
+                    <hr>
+                    <h3>Plaintext</h3>
+                    <textarea rows="6" class="form-control" ng-model="mCtrl.plaintext"></textarea>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-8">
+                    <hr>
+                    <h3>Init vector</h3>
+                    <textarea rows="1"  class="form-control" ng-model="mCtrl.iv"></textarea>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-8">
+                    <hr>
+                    <button ng-click="mCtrl.encryptText()" class="btn-success btn">Encrypt</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-8">
+                    <hr>
+                    <h3>Output</h3>
+                    <textarea rows="6" class="form-control" ng-model="mCtrl.output"></textarea>
+
+                    <hr>
+
+                    <small ng-if="mCtrl.output">Output length: <strong>{{mCtrl.output.length}}</strong></small>
+
+                    <hr>
+
+                    <button ng-if="mCtrl.output" ng-click="mCtrl.decryptText()" class="btn btn-danger">Decrypt</button>
+                </div>
+            </div>
+
+            <div ng-if="mCtrl.showDecrypted" class="row">
+                <div class="col-md-8">
+                    <hr>
+                    <h3>Decrypted</h3>
+                    <textarea rows="3"  class="form-control" ng-model="mCtrl.decrypted"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div ng-if="mCtrl.options">
+            <div class="row">
+                <div class="col-md-8">
+                    <button ng-click="mCtrl.encryptTextAESJS()" class="btn-success btn">Encrypt</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <hr>
+                    <h3>Output</h3>
+                    <textarea rows="6" class="form-control" ng-model="mCtrl.outputAESJS"></textarea>
+
+                    <hr>
+                    <small ng-if="mCtrl.outputAESJS">Output length: <strong>{{mCtrl.outputAESJS.length}}</strong></small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="node_modules/aes-js/index.js"></script>
+<script src="node_modules/jquery/dist/jquery.js"></script>
+<script src="node_modules/angular/angular.js"></script>
+<script src="node_modules/crypto-js/crypto-js.js"></script>
+
+<script src="index.js"></script>
+</body>
+</html>
