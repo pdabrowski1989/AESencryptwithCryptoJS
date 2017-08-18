@@ -12,10 +12,10 @@
 <body style="font-family: 'Roboto', sans-serif;">
 
 <div class="row-fluid">
-    <div class="col-md-10 col-md-offset-1">
+    <div style="margin-bottom: 40px" class="col-md-10 col-md-offset-1">
         <div class="row">
             <div class="col-md-8">
-                <h1><span style="font-weight: 300">AES encrypt with</span> <strong>CryptoJS</strong> <button ng-click="mCtrl.options = !mCtrl.options" class="pull-right btn btn-primary">AES-JS</button></h1>
+                <h1><span style="font-weight: 300">AES encrypt with</span> <strong class="text-primary">CryptoJS</strong> <button ng-click="mCtrl.options = !mCtrl.options" class="pull-right btn btn-primary">Options</button></h1>
                 <hr>
             </div>
         </div>
@@ -52,16 +52,16 @@
             </div>
 
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-8 ">
                     <hr>
                     <h3>Output</h3>
                     <textarea rows="6" class="form-control" ng-model="mCtrl.output"></textarea>
 
-                    <hr>
+                    <hr ng-if="mCtrl.output">
 
                     <small ng-if="mCtrl.output">Output length: <strong>{{mCtrl.output.length}}</strong></small>
 
-                    <hr>
+                    <hr ng-if="mCtrl.output"r>
 
                     <button ng-if="mCtrl.output" ng-click="mCtrl.decryptText()" class="btn btn-danger">Decrypt</button>
                 </div>
@@ -71,27 +71,13 @@
                 <div class="col-md-8">
                     <hr>
                     <h3>Decrypted</h3>
-                    <textarea rows="3"  class="form-control" ng-model="mCtrl.decrypted"></textarea>
+                    <textarea rows="6"  class="form-control" ng-model="mCtrl.decrypted"></textarea>
                 </div>
             </div>
         </div>
 
         <div ng-if="mCtrl.options">
-            <div class="row">
-                <div class="col-md-8">
-                    <button ng-click="mCtrl.encryptTextAESJS()" class="btn-success btn">Encrypt</button>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-8">
-                    <hr>
-                    <h3>Output</h3>
-                    <textarea rows="6" class="form-control" ng-model="mCtrl.outputAESJS"></textarea>
 
-                    <hr>
-                    <small ng-if="mCtrl.outputAESJS">Output length: <strong>{{mCtrl.outputAESJS.length}}</strong></small>
-                </div>
-            </div>
         </div>
     </div>
 </div>
